@@ -43,9 +43,15 @@ Placed these screenshots into `frontend/docs/screenshots/` and reference them be
 
 
 ## Screenshots
+### Ollama status
+![Ollama status](docs/screenshots/homepage.png)
+### Chat view
+![Chat view](docs/screenshots/chat-view.png)
+### Login flow
+![Login flow](docs/screenshots/login-form.png)
+### Chat delete
+![Chat delete](docs/screenshots/chat-delete.png)
+### Admin dashboard
+![Admin dashboard](docs/screenshots/admin-dashboard.png)
 
-[Homepage](docs/screenshots/homepage.png)
-[Chat view](docs/screenshots/chat-view.png)
-[Login flow](docs/screenshots/login-form.png)
-[Chat delete](docs/screenshots/chat-delete.png)
-[Admin dashboard](docs/screenshots/admin-dashboard.png)
+``````````````````
