@@ -1,9 +1,9 @@
-# YourAi_Chat — Full-stack AI Chat (Monorepo)
+# YourAi_Chat — Full-stack AI Chat
 
 > Full-stack AI chat application using Spring Boot + Spring AI (Ollama), MySQL, MongoDB and React.  
 > This README describes end-to-end developer setup and local run instructions.
 
-## Table of contents
+## 📝 Table of contents
 1. [Overview](#overview)  
 2. [Prerequisites](#prerequisites)  
 3. [Repository layout](#repository-layout)  
@@ -15,7 +15,7 @@
 9. [Troubleshooting](#troubleshooting)  
 
 
-## Overview
+## 🗒️Overview
 This monorepo contains two main parts:
 - `backend/` — Spring Boot microservice that exposes REST APIs, orchestrates AI calls with Spring AI, persists metadata in MySQL and uses MongoDB for chat history or vector store.
 - `frontend/` — React SPA that provides the UI and talks to the backend.
@@ -25,7 +25,7 @@ Detected defaults in your project:
 - Frontend dev port: **3000**
 - Ollama default API: **http://localhost:11434**
 
-## Prerequisites
+## 📚 Prerequisites
 - Java 17+ (JDK)
 - Maven (or Gradle)
 - Node 18+ and npm
@@ -34,7 +34,7 @@ Detected defaults in your project:
 - Ollama (Windows `.exe` installer)
 - Git
 
-## Repository layout
+## 📁Repository layout
 ```
 YourAi_Chat/
 ├── backend/                # Spring Boot service (Java)
@@ -70,7 +70,7 @@ CREATE DATABASE yourai_chat;
 CREATE USER 'youruser'@'localhost' IDENTIFIED BY 'strongpassword';
 GRANT ALL PRIVILEGES ON yourai_chat.* TO 'youruser'@'localhost';
 ```
-### Config (application.properties)
+### 🔌 Config (application.properties)
 ```properties
 server.port=8088
 spring.datasource.url=jdbc:mysql://localhost:3306/yourai_chat
@@ -96,7 +96,7 @@ npm install
 npm start
 ```
 
-## Ollama (local LLM) setup & Spring AI (also /ollama.md is present for detailed setup)
+## 🌐 Ollama (local LLM) setup & Spring AI (also /ollama.md is present for detailed setup)
 1. Install from https://ollama.com/download
 2. Pull model(s):
    ```bash
@@ -107,12 +107,12 @@ npm start
    curl http://localhost:11434/api/tags
    ```
 
-## Screenshots & documentation
+## 📸 Screenshots & documentation
 - `backend/docs/screenshots/` —  Postman, logs, DB, Ollama
 - `frontend/docs/screenshots/` — UI views, MFA setup
 
 
-## Troubleshooting
+## 🛠️ Troubleshooting
 - Backend port in use → change `server.port`
 - Ollama unreachable → `ollama serve`
 - DB refused → check MySQL/Mongo credentials
