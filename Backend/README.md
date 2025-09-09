@@ -52,13 +52,18 @@ Place these screenshots into `backend/docs/screenshots/` and reference them belo
 - `ollama-status.png` — curl response from Ollama (`curl http://localhost:11434/api/tags`) or terminal showing model list.
 
 ## Screenshots
-
-[Postman login](docs/screenshots/postman-login.png)
-[Postman aerifyOtp](docs/screenshots/postman-verifyotp.png)
-[Question asking](docs/screenshots/qestion-asking.png)
-[Startup logs](docs/screenshots/startup-logs.png)
-[Database connections](docs/screenshots/db-connections.png)
-[Ollama status](docs/screenshots/ollama-status.png)
+### Postman login
+![Postman login](docs/screenshots/postman-login.png)
+### Postman verifyOtp
+![Postman verifyOtp](docs/screenshots/postman-verifyotp.png)
+### Question asking
+![Question asking](docs/screenshots/qestion-asking.png)
+### Startup logs
+![Startup logs](docs/screenshots/startup-logs.png)
+### Database connections
+![Database connections](docs/screenshots/db-connections.png)
+### Ollama status
+![Ollama status](docs/screenshots/ollama-status.png)
 
 ```
 
