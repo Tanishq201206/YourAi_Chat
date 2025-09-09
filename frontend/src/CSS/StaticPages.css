@@ -1,0 +1,65 @@
+/* StaticPages.css - For Company, News, Terms pages */
+
+.static-root {
+  min-height: calc(100vh - 64px);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px 20px;
+  background: transparent;
+  color: #fff;
+}
+
+.static-card {
+  max-width: 800px;
+  width: 100%;
+  background: #121213;
+  border: 1px solid rgba(255,255,255,0.05);
+  padding: 32px;
+  border-radius: 12px;
+  box-shadow: 0 14px 40px rgba(0,0,0,0.5);
+}
+
+.static-card h2 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: #fff;
+}
+
+.static-card p {
+  font-size: 1rem;
+  color: #d0d0d0;
+  line-height: 1.6;
+}
+
+/* Footer links */
+.sidebar-footer {
+  background: var(--panel);
+  padding: 10px 14px;
+  border-top: 1px solid var(--border);
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--muted-2);
+  box-shadow: 0 -6px 18px rgba(0,0,0,0.45);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.footer-links a {
+  color: var(--muted-2);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+  color: #fff;
+}

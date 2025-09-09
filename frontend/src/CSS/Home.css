@@ -1,0 +1,302 @@
+/* Home.css - scoped to .home-root for crisp, professional look */
+/* Remove default browser white background and focus outlines */
+
+/* Make the full page background gradient */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: linear-gradient(90deg, #833AB4 0%, #FD1D1D 50%, #FCB045 100%);
+}
+
+/* Remove unexpected white outlines on focusable elements */
+*:focus {
+  outline: none;
+}
+
+/* If you still want accessibility-friendly focus indicators, 
+   replace with a subtle box-shadow instead of white outline */
+button:focus, a:focus {
+  box-shadow: 0 0 0 2px rgba(131,58,180,0.5);
+  border-radius: 6px;
+}
+
+:root{
+  --grad-1: #833AB4;
+  --grad-2: #FD1D1D;
+  --grad-3: #FCB045;
+  --bg-gradient: linear-gradient(90deg, var(--grad-1), var(--grad-2), var(--grad-3));
+  --panel: #0a0a0a;          /* opaque near-black panel (no blur) */
+  --muted: #dcdcdc;          /* readable muted text */
+  --muted-2: #bfbfbf;
+  --accent-text: #ffffff;
+  --card-bg: #0f0f10;        /* slightly lighter panel for cards */
+  --radius: 12px;
+  --ease: 180ms cubic-bezier(.2,.9,.3,1);
+  --shadow-subtle: 0 6px 18px rgba(0,0,0,0.55);
+  --shadow-strong: 0 12px 36px rgba(0,0,0,0.6);
+}
+
+/* Text rendering for crisper text */
+.home-root, .home-root * {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  box-sizing: border-box;
+}
+
+/* Page background: full-page gradient, but content panels are opaque for clarity */
+.home-root {
+  min-height: 100vh;
+  background: var(--bg-gradient);
+  color: var(--accent-text);
+  display: flex;
+  flex-direction: column;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+/* ---------- Header ---------- */
+.home-root > header {
+  background: var(--panel);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 28px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  /* crisp shadow (smaller) */
+  box-shadow: var(--shadow-subtle);
+}
+
+/* Brand text with solid gradient clipped to text (sharp) */
+/* header strong */
+.home-root header strong {
+  font-size: 1.35rem;
+  font-weight: 700;
+  background: var(--bg-gradient);
+
+  background-clip: text;           /* add this */
+  -webkit-background-clip: text;
+
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Header nav styling */
+.home-root header nav[aria-label="header-actions"] {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+/* Buttons/links in header */
+.home-root header nav a,
+.home-root header nav button {
+  color: var(--accent-text);
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.06);
+  padding: 8px 14px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform var(--ease), box-shadow var(--ease), background var(--ease);
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Hover - no blur, crisp glow via box-shadow and slight scale */
+.home-root header nav a:hover,
+.home-root header nav button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(131,58,180,0.12);
+  background: linear-gradient(90deg, rgba(131,58,180,0.08), rgba(252,176,69,0.06));
+}
+
+/* ---------- Main content ---------- */
+/* use an opaque card for main content to avoid text appearing over gradient */
+.home-root main {
+  margin: 30px auto 48px;
+  width: min(1100px, 96%);
+  background: var(--card-bg);
+  padding: 36px;
+  border-radius: 14px;
+  box-shadow: var(--shadow-strong);
+  border: 1px solid rgba(255,255,255,0.035);
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* Hero - centered, crisp heading */
+.home-root section[aria-labelledby="hero-title"] {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 14px;
+  margin-bottom: 28px;
+}
+
+/* meta above hero (small label) */
+.home-root section[aria-labelledby="hero-title"] p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--muted-2);
+}
+
+/* hero title - clipped gradient text, sharp */
+/* hero title */
+.home-root #hero-title {
+  font-size: clamp(1.6rem, 3.4vw, 2.4rem);
+  font-weight: 800;
+  background: var(--bg-gradient);
+
+  background-clip: text;           /* add this */
+  -webkit-background-clip: text;
+
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+/* CTA wrapper */
+.home-root section[aria-labelledby="hero-title"] > div {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* CTA primary (app) - opaque, crisp gradient button */
+.home-root section[aria-labelledby="hero-title"] a[href*="/app"] {
+  display: inline-block;
+  padding: 12px 20px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 700;
+  min-width: 120px;
+  text-align: center;
+  background: linear-gradient(90deg, var(--grad-1), var(--grad-2));
+  color: #fff;
+  border: none;
+  box-shadow: 0 8px 26px rgba(0,0,0,0.55);
+  transition: transform var(--ease), box-shadow var(--ease);
+}
+
+/* Hover: small lift + stronger crisp shadow */
+.home-root section[aria-labelledby="hero-title"] a[href*="/app"]:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 20px 54px rgba(0,0,0,0.6), 0 0 24px rgba(131,58,180,0.09);
+}
+
+/* CTA secondary (register) - ghost but with crisp border */
+.home-root section[aria-labelledby="hero-title"] a[href*="/register"] {
+  display: inline-block;
+  padding: 12px 18px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 700;
+  min-width: 110px;
+  text-align: center;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: transparent;
+  color: var(--accent-text);
+  transition: transform var(--ease), background var(--ease), box-shadow var(--ease);
+}
+
+/* Hover for secondary — subtle gradient background for emphasis (no blur) */
+.home-root section[aria-labelledby="hero-title"] a[href*="/register"]:hover {
+  transform: translateY(-3px);
+  background: linear-gradient(90deg, rgba(131,58,180,0.08), rgba(252,176,69,0.06));
+  box-shadow: 0 8px 28px rgba(0,0,0,0.48);
+}
+
+/* Crisp divider */
+.home-root main hr {
+  height: 1px;
+  border: none;
+  background: rgba(255,255,255,0.03);
+  margin: 26px 0;
+  opacity: 0.85;
+}
+
+/* Article sections: compact cards with sharp hover */
+.home-root main > section:not([aria-labelledby="hero-title"]) {
+  padding: 14px;
+  margin-bottom: 14px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.02);
+  transition: transform var(--ease), box-shadow var(--ease);
+}
+
+/* Hover: crisp lift with small shadow */
+.home-root main > section:not([aria-labelledby="hero-title"]):hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 36px rgba(0,0,0,0.55);
+}
+
+/* section headings with clipped gradient text for prominence */
+/* section headings */
+.home-root main h2 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, var(--grad-1), var(--grad-2));
+
+  background-clip: text;           /* add this */
+  -webkit-background-clip: text;
+
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+/* paragraphs */
+.home-root main p {
+  margin: 0;
+  color: var(--muted-2);
+  line-height: 1.58;
+  font-size: 0.98rem;
+}
+
+/* ---------- Footer ---------- */
+.home-root footer {
+  margin-top: 10px;
+  background: var(--panel);
+  padding: 18px 12px;
+  border-top: 1px solid rgba(255,255,255,0.03);
+  box-shadow: var(--shadow-subtle);
+}
+
+/* footer nav links */
+.home-root footer nav[aria-label="footer"] ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+}
+
+.home-root footer nav[aria-label="footer"] a {
+  color: var(--muted-2);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color var(--ease), transform var(--ease);
+}
+
+.home-root footer nav[aria-label="footer"] a:hover {
+  color: var(--grad-3);
+  transform: translateY(-3px);
+}
+
+/* ---------- Responsive tweaks ---------- */
+@media (max-width: 880px) {
+  .home-root main { padding: 22px; margin: 18px 12px 40px; border-radius: 12px; }
+  .home-root header { padding: 10px 14px; }
+  .home-root header strong { font-size: 1.12rem; }
+  .home-root section[aria-labelledby="hero-title"] a { min-width: 100px; padding: 10px 12px; }
+}
+
+@media (max-width: 520px) {
+  .home-root footer nav[aria-label="footer"] ul { gap: 12px; flex-wrap: wrap; }
+  .home-root header nav[aria-label="header-actions"] { gap: 6px; }
+}

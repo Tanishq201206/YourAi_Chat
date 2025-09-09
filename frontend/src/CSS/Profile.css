@@ -1,0 +1,72 @@
+/* Profile.css - styled profile page, consistent with project theme */
+
+:root {
+  --grad-1: #833AB4;
+  --grad-2: #FD1D1D;
+  --grad-3: #FCB045;
+  --card: #121213;
+  --muted: #d0d0d0;
+  --muted-2: #aeb0b2;
+  --accent: #fff;
+  --radius: 12px;
+  --shadow: 0 14px 40px rgba(0,0,0,0.6);
+  --ease: 180ms cubic-bezier(.2,.9,.3,1);
+}
+
+.profile-root {
+  min-height: calc(100vh - 64px);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px 20px;
+  background: transparent;
+  color: var(--accent);
+}
+
+.profile-card {
+  max-width: 600px;
+  width: 100%;
+  background: var(--card);
+  border: 1px solid rgba(255,255,255,0.05);
+  padding: 32px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.profile-card h2 {
+  margin: 0 0 20px 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, var(--grad-1), var(--grad-2), var(--grad-3));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.profile-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 14px;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.profile-label {
+  font-weight: 600;
+  color: var(--muted-2);
+  min-width: 120px;
+}
+
+.profile-value {
+  color: var(--accent);
+  font-size: 1rem;
+}
+
+.profile-error {
+  color: #ff7b7b;
+  font-size: 0.95rem;
+  padding: 12px;
+  background: rgba(255, 0, 0, 0.08);
+  border: 1px solid rgba(255, 0, 0, 0.2);
+  border-radius: 8px;
+}

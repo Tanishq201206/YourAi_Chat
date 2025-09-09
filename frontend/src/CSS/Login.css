@@ -1,0 +1,184 @@
+/* Login.css - scoped to .login-root so it doesn't affect global .btn styles */
+
+:root{
+  --grad-1: #833AB4;
+  --grad-2: #FD1D1D;
+  --grad-3: #FCB045;
+  --panel: #0f0f10;
+  --card: #121213;
+  --muted: #d0d0d0;
+  --muted-2: #aeb0b2;
+  --accent: #fff;
+  --radius: 12px;
+  --ease: 180ms cubic-bezier(.2,.9,.3,1);
+  --shadow: 0 14px 40px rgba(0,0,0,0.6);
+}
+
+/* Ensure crisp text rendering, scoped */
+.login-root, .login-root * {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+  text-rendering: optimizeLegibility;
+}
+
+/* Page wrapper (centered card) */
+.login-root {
+  min-height: calc(100vh - 32px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: linear-gradient(90deg, var(--grad-1), var(--grad-2), var(--grad-3));
+  color: var(--accent);
+}
+
+/* Card */
+.login-root .login-card {
+  width: 100%;
+  max-width: 460px;
+  background: var(--card);
+  padding: 28px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(255,255,255,0.035);
+}
+
+/* Heading */
+.login-root .login-card h2 {
+  margin: 0 0 14px 0;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+/* Form groups */
+.login-root .login-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 6px;
+}
+
+.login-root .input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* Inputs (text and password) */
+.login-root .login-input {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.06);
+  background: rgba(255,255,255,0.02);
+  color: var(--accent);
+  font-size: 0.98rem;
+  transition: box-shadow var(--ease), transform var(--ease), border-color var(--ease);
+  outline: none;
+}
+
+/* Placeholder color */
+.login-root .login-input::placeholder {
+  color: rgba(255,255,255,0.45);
+}
+
+/* Focus state (accessible, not white outline) */
+.login-root .login-input:focus {
+  box-shadow: 0 6px 20px rgba(131,58,180,0.12);
+  border-color: rgba(131,58,180,0.45);
+  transform: translateY(-1px);
+}
+
+/* Buttons row (submit) - scoped so it won't affect global styles */
+.login-root .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 16px;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+  min-height: 44px;
+  transition: transform var(--ease), box-shadow var(--ease), opacity var(--ease);
+  background: rgba(0,0,0,0.24);
+  color: var(--accent);
+}
+
+/* Primary gradient button (Send OTP / Verify) */
+.login-root .btn.btn-primary {
+  background: linear-gradient(90deg, var(--grad-1), var(--grad-2));
+  color: #fff;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+}
+
+.login-root .btn.btn-primary:hover:not(:disabled) {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 0 20px 54px rgba(0,0,0,0.62), 0 0 20px rgba(131,58,180,0.08);
+}
+
+/* Disabled state */
+.login-root .btn:disabled,
+.login-root .btn[aria-disabled="true"] {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+  pointer-events: none;
+}
+
+/* Small metadata (email shown during OTP phase) */
+.login-root .login-meta {
+  font-size: 0.95rem;
+  color: var(--muted-2);
+  margin-bottom: 6px;
+}
+
+/* Message box (info / error) */
+.login-root .login-msg {
+  margin-top: 10px;
+  background: rgba(255,255,255,0.02);
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.03);
+  color: var(--muted);
+  font-size: 0.95rem;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* OTP small input centered */
+.login-root .otp-input-wrap {
+  display: flex;
+  justify-content: center;
+}
+
+/* Make the OTP input a bit narrower */
+.login-root .otp-input {
+  width: 180px;
+}
+
+/* Accessibility: replace default focus outlines with brand ring (scoped) */
+.login-root .login-card button:focus,
+.login-root .login-card a:focus {
+  box-shadow: 0 0 0 3px rgba(131,58,180,0.16);
+  border-radius: 8px;
+}
+
+/* Links in card (if you add them) */
+.login-root .card-link {
+  color: var(--muted);
+  text-decoration: none;
+  font-weight: 600;
+}
+.login-root .card-link:hover {
+  color: #fff;
+}
+
+/* Responsive adjustments */
+@media (max-width: 520px) {
+  .login-root .login-card { padding: 18px; max-width: 92%; }
+  .login-root .otp-input { width: 100%; }
+}

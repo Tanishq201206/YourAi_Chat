@@ -1,0 +1,46 @@
+server:
+  port: 8088
+
+spring:
+  ai:
+    model:
+      chat: ollama
+    ollama:
+      base-url: http://localhost:11434
+      chat:
+        options:
+          model: llama3.1:8b
+          temperature: 0.7
+  datasource:
+    url: jdbc:mysql://localhost:3306/ollama_users?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+    username: <YOUR_USERNAME>
+    password: <YOUR_PASSWORD>    # <-- change to your MySQL root password
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update   # dev only, auto create/alter tables
+    show-sql: true
+
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/ollama_memory
+
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: <YOUR_EMAIL>   # <-- put your sender email
+    password: <YOUR_PASSWORD>    # <-- use app password, not raw Gmail pwd
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
+security:
+  jwt:
+    secret: "ThisIsASecretKeyForJWTGenerationReplaceInProd"
+    expiration: 3600000   # 1 hour in ms
+
+app:
+  timezone: Asia/Kolkata

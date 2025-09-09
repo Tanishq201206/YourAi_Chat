@@ -1,0 +1,148 @@
+/* Register.css - matches Login.css styles, scoped to .register-root */
+
+/* color & spacing variables */
+:root{
+  --grad-1: #833AB4;
+  --grad-2: #FD1D1D;
+  --grad-3: #FCB045;
+  --card: #121213;
+  --muted: #d0d0d0;
+  --muted-2: #aeb0b2;
+  --accent: #fff;
+  --radius: 12px;
+  --ease: 180ms cubic-bezier(.2,.9,.3,1);
+  --shadow: 0 14px 40px rgba(0,0,0,0.6);
+}
+
+/* Crisp rendering */
+.register-root, .register-root * {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+  text-rendering: optimizeLegibility;
+}
+
+/* Page wrapper */
+.register-root {
+  min-height: calc(100vh - 32px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: linear-gradient(90deg, var(--grad-1), var(--grad-2), var(--grad-3));
+  color: var(--accent);
+}
+
+/* Card */
+.register-root .register-card {
+  width: 100%;
+  max-width: 520px;
+  background: var(--card);
+  padding: 28px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(255,255,255,0.035);
+}
+
+/* Heading */
+.register-root .register-card h2 {
+  margin: 0 0 14px 0;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+/* Form layout */
+.register-root .register-card form {
+  display:flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 6px;
+}
+
+/* Inputs */
+.register-root .register-input {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.06);
+  background: rgba(255,255,255,0.02);
+  color: var(--accent);
+  font-size: 0.98rem;
+  transition: box-shadow var(--ease), transform var(--ease), border-color var(--ease);
+  outline: none;
+}
+
+.register-root .register-input::placeholder { color: rgba(255,255,255,0.45); }
+
+.register-root .register-input:focus {
+  box-shadow: 0 6px 20px rgba(131,58,180,0.12);
+  border-color: rgba(131,58,180,0.45);
+  transform: translateY(-1px);
+}
+
+/* Buttons (scoped, do not override global .btn) */
+.register-root .register-btn {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding: 12px 16px;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor:pointer;
+  border:none;
+  min-height:44px;
+  transition: transform var(--ease), box-shadow var(--ease), opacity var(--ease);
+  background: rgba(0,0,0,0.24);
+  color: var(--accent);
+}
+
+/* Primary gradient */
+.register-root .register-btn.register-btn-primary {
+  background: linear-gradient(90deg, var(--grad-1), var(--grad-2));
+  color: #fff;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+}
+
+.register-root .register-btn.register-btn-primary:hover:not(:disabled) {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 0 20px 54px rgba(0,0,0,0.62), 0 0 20px rgba(131,58,180,0.08);
+}
+
+/* Disabled state */
+.register-root .register-btn:disabled,
+.register-root .register-btn[aria-disabled="true"] {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+  pointer-events: none;
+}
+
+/* Message box */
+.register-root .register-msg {
+  margin-top: 10px;
+  background: rgba(255,255,255,0.02);
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.03);
+  color: var(--muted);
+  font-size: 0.95rem;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* OTP input narrower */
+.register-root .otp-input { width: 180px; }
+
+/* Focus ring accessibility */
+.register-root .register-card button:focus, .register-root .register-card a:focus {
+  box-shadow: 0 0 0 3px rgba(131,58,180,0.16);
+  border-radius: 8px;
+}
+
+/* Responsive */
+@media (max-width: 520px) {
+  .register-root .register-card { padding: 18px; max-width: 92%; }
+  .register-root .otp-input { width: 100%; }
+}
